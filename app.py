@@ -128,7 +128,7 @@ num_recommendations = st.sidebar.slider(
     value=5
 )
 
-recommend_button = st.sidebar.button("🎥 Cari Rekomendasi")
+recommend_button = st.sidebar.button("Cari Rekomendasi")
 
 # ======================================================
 # MAIN CONTENT
@@ -138,7 +138,7 @@ if recommend_button:
 
     # validasi input kosong
     if selected_movie.strip() == "":
-        st.warning("⚠️ Masukin nama film dulu yaa 😭")
+        st.warning("Masukin nama film dulu yaa")
         st.stop()
 
     # ambil rekomendasi
@@ -163,9 +163,9 @@ if recommend_button:
                 ### {rec['rank']}. {rec['title']}
                 """)
 
-                st.write(f"🎭 Genre: {rec['genre']}")
+                st.write(f"Genre: {rec['genre']}")
 
-                st.write(f"🔥 Kemiripan: {rec['similarity']}%")
+                st.write(f"Kemiripan: {rec['similarity']}%")
 
                 st.write(rec['description'])
 
@@ -173,4 +173,4 @@ if recommend_button:
 
 else:
 
-    st.info("👈 Ketik nama film favoritmu lalu klik tombol rekomendasi")
+    st.info("Ketik nama film favoritmu lalu klik tombol rekomendasi")
