@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 
 from recommender import (
@@ -22,109 +23,42 @@ st.set_page_config(
 # CUSTOM CSS
 # ======================================================
 
-st.markdown("""
-<style>
-
-/* BACKGROUND */
-.stApp {
-    background: linear-gradient(
-        135deg,
-        #0F172A 0%,
-        #1E293B 50%,
-        #111827 100%
-    );
-    color: white;
-}
-
-/* TITLE */
-h1 {
-    color: #FACC15 !important;
-    font-weight: 800;
-    text-align: center;
-    font-size: 52px;
-}
-
-/* SUBTITLE */
-h2, h3 {
-    color: white !important;
-}
-
-/* SIDEBAR */
-section[data-testid="stSidebar"] {
-    background-color: #111827;
-    border-right: 2px solid #FACC15;
-}
-
-/* CARD */
-.movie-card {
+components.html(f"""
+<div style="
     background: rgba(255,255,255,0.08);
-
     padding: 25px;
-
     border-radius: 20px;
-
-    border: 1px solid rgba(255,255,255,0.1);
-
     margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+">
 
-    transition: 0.3s ease;
-}
+<h2 style="
+    color:#FACC15;
+">
+{rec['rank']}. {rec['title']}
+</h2>
 
-/* CARD HOVER */
-.movie-card:hover {
-    transform: translateY(-5px);
+<p style="
+    color:#CBD5E1;
+">
+🎭 Genre: {rec['genre']}
+</p>
 
-    border: 1px solid #FACC15;
+<p style="
+    color:#FACC15;
+    font-weight:bold;
+">
+🔥 Kemiripan: {rec['similarity']}%
+</p>
 
-    box-shadow: 0 10px 30px rgba(250,204,21,0.25);
-}
+<p style="
+    color:white;
+">
+{rec['description']}
+</p>
 
-/* MOVIE TITLE */
-.movie-card h3 {
-    color: #FACC15 !important;
-}
-
-/* GENRE */
-.genre {
-    color: #CBD5E1;
-    font-size: 14px;
-}
-
-/* SIMILARITY */
-.similarity {
-    color: #FACC15;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-/* BUTTON */
-.stButton > button {
-    background: linear-gradient(
-        90deg,
-        #FACC15,
-        #EAB308
-    );
-
-    color: black;
-
-    font-weight: bold;
-
-    border: none;
-
-    border-radius: 12px;
-
-    padding: 10px 20px;
-}
-
-/* BUTTON HOVER */
-.stButton > button:hover {
-    transform: scale(1.03);
-
-    box-shadow: 0 5px 20px rgba(250,204,21,0.4);
-}
-
-</style>
-""", unsafe_allow_html=True)
+</div>
+""", height=260)
 
 # ======================================================
 # LOAD MODEL
