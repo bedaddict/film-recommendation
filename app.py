@@ -25,36 +25,131 @@ st.set_page_config(
 st.markdown("""
 <style>
 
+/* BACKGROUND UTAMA */
 .stApp {
-    background-color: #FFF8E7;
+    background: linear-gradient(
+        135deg,
+        #0F172A 0%,
+        #1E293B 50%,
+        #111827 100%
+    );
+    color: white;
 }
 
-h1, h2, h3 {
-    color: #F4B400;
-    font-weight: bold;
+/* TITLE */
+h1 {
+    color: #FACC15 !important;
+    font-weight: 800;
+    text-align: center;
+    font-size: 52px;
 }
 
+/* SUBTITLE */
+h2, h3 {
+    color: white !important;
+}
+
+/* TEXT */
+p, label, div {
+    color: white;
+}
+
+/* SIDEBAR */
+section[data-testid="stSidebar"] {
+    background-color: #111827;
+    border-right: 2px solid #FACC15;
+}
+
+/* SIDEBAR TITLE */
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3 {
+    color: #FACC15 !important;
+}
+
+/* CARD FILM */
 .movie-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 15px;
-    border: 2px solid #FFD54F;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+
+    padding: 25px;
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    margin-bottom: 20px;
+
+    transition: 0.3s ease;
 }
 
-.similarity {
-    color: #E65100;
-    font-weight: bold;
+/* HOVER CARD */
+.movie-card:hover {
+    transform: translateY(-5px);
+    border: 1px solid #FACC15;
+    box-shadow: 0 10px 30px rgba(250,204,21,0.25);
 }
 
+/* JUDUL FILM */
+.movie-card h3 {
+    color: #FACC15 !important;
+    margin-bottom: 10px;
+}
+
+/* GENRE */
 .genre {
-    color: #795548;
+    color: #CBD5E1;
     font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* SIMILARITY */
+.similarity {
+    color: #FACC15;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* BUTTON */
+.stButton > button {
+    background: linear-gradient(
+        90deg,
+        #FACC15,
+        #EAB308
+    );
+
+    color: black;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 12px;
+
+    padding: 10px 20px;
+
+    transition: 0.3s ease;
+}
+
+/* BUTTON HOVER */
+.stButton > button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 20px rgba(250,204,21,0.4);
+}
+
+/* SELECTBOX */
+div[data-baseweb="select"] > div {
+    background-color: #1E293B;
+    color: white;
+    border-radius: 10px;
+}
+
+/* SLIDER */
+.stSlider {
+    color: #FACC15;
 }
 
 </style>
 """, unsafe_allow_html=True)
+
 
 # ======================================================
 # LOAD MODEL
