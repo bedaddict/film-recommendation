@@ -138,23 +138,42 @@ st.subheader("Content-Based Filtering dengan TF-IDF + Cosine Similarity")
 st.divider()
 
 # ======================================================
-# SIDEBAR
+# INPUT SECTION
 # ======================================================
 
+# bikin layout tengah
+left_space, center, right_space = st.columns([1, 3, 1])
 
-selected_movie = st.sidebar.text_input(
-    "Ketik nama film favoritmu:",
-    placeholder="Contoh: Interstellar, Avatar, Batman..."
-)
+with center:
 
-num_recommendations = st.sidebar.slider(
-    "Jumlah rekomendasi:",
-    min_value=1,
-    max_value=10,
-    value=5
-)
+    st.markdown("""
+    <div style="
+        text-align:center;
+        margin-bottom:20px;
+    ">
+        <h3 style="color:white;">
+        Cari film favoritmu 🎬
+        </h3>
+    </div>
+    """, unsafe_allow_html=True)
 
-recommend_button = st.sidebar.button("Cari Rekomendasi")
+    selected_movie = st.text_input(
+        "",
+        placeholder="Contoh: Interstellar, Avatar, Batman..."
+    )
+
+    num_recommendations = st.slider(
+        "Jumlah rekomendasi",
+        min_value=1,
+        max_value=10,
+        value=5
+    )
+
+    recommend_button = st.button(
+        "Cari Rekomendasi",
+        use_container_width=True
+    )
+
 
 # ======================================================
 # MAIN CONTENT
