@@ -129,13 +129,16 @@ def load_model():
 df, sim_matrix = load_model()
 
 # ======================================================
-# HEADER
+# HERO BANNER
 # ======================================================
 
-st.title("Sistem Rekomendasi Film")
-st.subheader("Content-Based Filtering dengan TF-IDF + Cosine Similarity")
+st.image(
+    "banner1.png",
+    use_container_width=True
+)
 
-st.divider()
+st.markdown("<br>", unsafe_allow_html=True)
+
 
 # ======================================================
 # INPUT SECTION
@@ -239,3 +242,33 @@ else:
        Ketik nama film favoritmu lalu klik tombol rekomendasi
        </div>
         """, unsafe_allow_html=True)
+
+st.markdown("<br><br>", unsafe_allow_html=True)
+
+st.divider()
+
+st.markdown("""
+    <div style="
+    text-align:center;
+    padding:20px;
+    color:#888;
+    ">
+
+    <h3 style="
+    color:#E50914;
+    margin-bottom:5px;
+    ">
+    MatchyMovs
+    </h3>
+
+    <p style="
+    font-size:14px;
+    color:#777;
+    ">
+    Sistem Rekomendasi Film berbasis
+    Content-Based Filtering dengan TF-IDF + Cosine Similarity
+    </p>
+
+    </div>
+    """, unsafe_allow_html=True)
+
