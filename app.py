@@ -199,4 +199,15 @@ if recommend_button:
 
 else:
 
-    st.info("Ketik nama film favoritmu lalu klik tombol rekomendasi")
+st.markdown("""
+<div style="
+    background-color: #1f1f1f;
+    padding: 18px;
+    border-radius: 12px;
+    border-left: 5px solid #E50914;
+    color: white;
+    font-size: 18px;
+">
+🎬 Ketik nama film favoritmu lalu klik tombol rekomendasi
+</div>
+""", unsafe_allow_html=True)
