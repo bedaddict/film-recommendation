@@ -1,4 +1,3 @@
-```python
 import streamlit as st
 import pandas as pd
 
@@ -139,4 +138,3 @@ if recommend_button:
 else:
 
     st.info("👈 Pilih film di sidebar lalu klik tombol rekomendasi")
-```
