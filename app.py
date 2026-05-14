@@ -199,6 +199,9 @@ if recommend_button:
                 st.write(f"Genre: {rec['genre']}")
 
                 st.write(f"Kemiripan: {rec['similarity']}%")
+                similarity_score = float(rec['similarity']) / 100
+                
+                st.progress(similarity_score)
 
                 st.write(rec['description'])
 
