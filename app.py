@@ -2,7 +2,7 @@
 # HEADER
 # ======================================================
 
-st.title("🎬 Sistem Rekomendasi Film")
+st.title("Sistem Rekomendasi Film")
 st.write("Content-Based Filtering dengan TF-IDF + Cosine Similarity")
 
 st.divider()
