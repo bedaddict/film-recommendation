@@ -167,7 +167,7 @@ if recommend_button:
 
             st.markdown("""
             <div style="background: linear-gradient(90deg, rgba(229,9,20,0.15), rgba(229,9,20,0.08)); padding:18px; border-radius:12px; border:1px solid rgba(229,9,20,0.4); color:#ffb3b3; font-size:18px; font-weight:500;">
-            ⚠️ Masukin nama film dulu yaa :)
+            Masukin nama film dulu yaa :)
             </div>
             """, unsafe_allow_html=True)
 
