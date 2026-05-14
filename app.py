@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 import pandas as pd
 
 from recommender import (
@@ -23,42 +22,65 @@ st.set_page_config(
 # CUSTOM CSS
 # ======================================================
 
-components.html(f"""
-<div style="
-    background: rgba(255,255,255,0.08);
-    padding: 25px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
-">
+st.markdown("""
+<style>
 
-<h2 style="
-    color:#FACC15;
-">
-{rec['rank']}. {rec['title']}
-</h2>
+/* BACKGROUND */
+.stApp {
+    background: linear-gradient(
+        135deg,
+        #0F172A 0%,
+        #1E293B 50%,
+        #111827 100%
+    );
+    color: white;
+}
 
-<p style="
-    color:#CBD5E1;
-">
-🎭 Genre: {rec['genre']}
-</p>
+/* TITLE */
+h1 {
+    color: #FACC15 !important;
+    font-weight: 800;
+    text-align: center;
+    font-size: 52px;
+}
 
-<p style="
-    color:#FACC15;
-    font-weight:bold;
-">
-🔥 Kemiripan: {rec['similarity']}%
-</p>
+/* SUBTITLE */
+h2, h3 {
+    color: white !important;
+}
 
-<p style="
-    color:white;
-">
-{rec['description']}
-</p>
+/* SIDEBAR */
+section[data-testid="stSidebar"] {
+    background-color: #111827;
+    border-right: 2px solid #FACC15;
+}
 
-</div>
-""", height=260)
+/* BUTTON */
+.stButton > button {
+    background: linear-gradient(
+        90deg,
+        #FACC15,
+        #EAB308
+    );
+
+    color: black;
+
+    font-weight: bold;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 10px 20px;
+}
+
+/* BUTTON HOVER */
+.stButton > button:hover {
+    transform: scale(1.03);
+}
+
+</style>
+""", unsafe_allow_html=True)
 
 # ======================================================
 # LOAD MODEL
@@ -96,7 +118,7 @@ st.sidebar.header("⚙️ Pengaturan")
 
 selected_movie = st.sidebar.text_input(
     "🎬 Ketik nama film favoritmu:",
-    placeholder="Contoh: Avatar, Interstellar, Batman..."
+    placeholder="Contoh: Interstellar, Avatar, Batman..."
 )
 
 num_recommendations = st.sidebar.slider(
@@ -114,7 +136,7 @@ recommend_button = st.sidebar.button("🎥 Cari Rekomendasi")
 
 if recommend_button:
 
-    # cek input kosong
+    # validasi input kosong
     if selected_movie.strip() == "":
         st.warning("⚠️ Masukin nama film dulu yaa 😭")
         st.stop()
@@ -127,32 +149,27 @@ if recommend_button:
         top_n=num_recommendations
     )
 
+    # tampilkan judul
     st.subheader(f"🍿 Film mirip dengan: {selected_movie}")
 
-    # tampilkan hasil
+    # kalau ada hasil
     if recommendations:
 
         for rec in recommendations:
 
-            st.markdown(f"""
-            <div class="movie-card">
+            with st.container():
 
-                <h3>{rec['rank']}. {rec['title']}</h3>
+                st.markdown(f"""
+                ### {rec['rank']}. {rec['title']}
+                """)
 
-                <p class="genre">
-                    🎭 Genre: {rec['genre']}
-                </p>
+                st.write(f"🎭 Genre: {rec['genre']}")
 
-                <p class="similarity">
-                    🔥 Kemiripan: {rec['similarity']}%
-                </p>
+                st.write(f"🔥 Kemiripan: {rec['similarity']}%")
 
-                <p>
-                    {rec['description']}
-                </p>
+                st.write(rec['description'])
 
-            </div>
-            """, unsafe_allow_html=True)
+                st.divider()
 
 else:
 
