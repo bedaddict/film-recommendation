@@ -14,7 +14,7 @@ from recommender import (
 
 st.set_page_config(
     page_title="Sistem Rekomendasi Film",
-    page_icon="🎬",
+    page_icon="icon.jpg",
     layout="wide"
 )
 
