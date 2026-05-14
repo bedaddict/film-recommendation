@@ -22,25 +22,26 @@ st.set_page_config(
 # CUSTOM CSS
 # ======================================================
 
+
 st.markdown("""
 <style>
 
 /* BACKGROUND */
 .stApp {
-    background: linear-gradient(
-        135deg,
-        #0F172A 0%,
-        #1E293B 50%,
-        #111827 100%
-    );
+    background-color: #141414;
     color: white;
+}
+
+/* MAIN CONTENT */
+.main .block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 /* TITLE */
 h1 {
-    color: #FACC15 !important;
+    color: #E50914 !important;
     font-weight: 800;
-    text-align: center;
     font-size: 52px;
 }
 
@@ -51,36 +52,63 @@ h2, h3 {
 
 /* SIDEBAR */
 section[data-testid="stSidebar"] {
-    background-color: #111827;
-    border-right: 2px solid #FACC15;
+    background-color: #000000;
+    border-right: 2px solid #E50914;
+}
+
+/* SIDEBAR TEXT */
+section[data-testid="stSidebar"] * {
+    color: white !important;
+}
+
+/* INPUT BOX */
+.stTextInput input {
+    background-color: #2b2b2b;
+    color: white;
+    border: 1px solid #E50914;
+    border-radius: 10px;
+}
+
+/* SLIDER */
+.stSlider {
+    color: #E50914;
 }
 
 /* BUTTON */
 .stButton > button {
-    background: linear-gradient(
-        90deg,
-        #FACC15,
-        #EAB308
-    );
-
-    color: black;
+    background-color: #E50914;
+    color: white;
 
     font-weight: bold;
 
     border: none;
-
-    border-radius: 12px;
+    border-radius: 10px;
 
     padding: 10px 20px;
+
+    transition: 0.3s ease;
 }
 
 /* BUTTON HOVER */
 .stButton > button:hover {
+    background-color: #ff1f1f;
     transform: scale(1.03);
+}
+
+/* MOVIE CONTAINER */
+[data-testid="stVerticalBlock"] {
+    border-radius: 15px;
+}
+
+/* DIVIDER */
+hr {
+    border-color: rgba(255,255,255,0.1);
 }
 
 </style>
 """, unsafe_allow_html=True)
+
+
 
 # ======================================================
 # LOAD MODEL
@@ -104,12 +132,7 @@ df, sim_matrix = load_model()
 # HEADER
 # ======================================================
 
-col1, col2 = st.columns([1, 8])
-with col1: 
-    st.image("icon.jpg", width=80)
-with col2: 
-    st.title("Sistem Rekomendasi Film")
-
+st.title("Sistem Rekomendasi Film")
 st.subheader("Content-Based Filtering dengan TF-IDF + Cosine Similarity")
 
 st.divider()
