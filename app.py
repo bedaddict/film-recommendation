@@ -134,7 +134,7 @@ df, sim_matrix = load_model()
 
 st.image(
     "banner1.png",
-    width=1200
+    width=500
 )
 
 st.markdown("<br>", unsafe_allow_html=True)
