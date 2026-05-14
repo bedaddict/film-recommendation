@@ -104,7 +104,11 @@ df, sim_matrix = load_model()
 # HEADER
 # ======================================================
 
-st.title("🎬 Sistem Rekomendasi Film")
+col1, col2 = st.columns([1, 8])
+with col1: 
+    st.image("icon.jpg", width=80)
+with col2: 
+    st.title("Sistem Rekomendasi Film")
 
 st.subheader("Content-Based Filtering dengan TF-IDF + Cosine Similarity")
 
@@ -116,7 +120,7 @@ st.divider()
 
 
 selected_movie = st.sidebar.text_input(
-    "🎬 Ketik nama film favoritmu:",
+    "Ketik nama film favoritmu:",
     placeholder="Contoh: Interstellar, Avatar, Batman..."
 )
 
