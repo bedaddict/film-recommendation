@@ -22,133 +22,27 @@ st.set_page_config(
 # CUSTOM CSS
 # ======================================================
 
-st.markdown("""
-<style>
+id="lv47zu"
+st.markdown(f"""
+<div class="movie-card">
 
-/* BACKGROUND UTAMA */
-.stApp {
-    background: linear-gradient(
-        135deg,
-        #0F172A 0%,
-        #1E293B 50%,
-        #111827 100%
-    );
-    color: white;
-}
+<h3>{rec['rank']}. {rec['title']}</h3>
 
-/* TITLE */
-h1 {
-    color: #FACC15 !important;
-    font-weight: 800;
-    text-align: center;
-    font-size: 52px;
-}
+<p class="genre">
+🎭 Genre: {rec['genre']}
+</p>
 
-/* SUBTITLE */
-h2, h3 {
-    color: white !important;
-}
+<p class="similarity">
+🔥 Kemiripan: {rec['similarity']}%
+</p>
 
-/* TEXT */
-p, label, div {
-    color: white;
-}
+<p>
+{rec['description']}
+</p>
 
-/* SIDEBAR */
-section[data-testid="stSidebar"] {
-    background-color: #111827;
-    border-right: 2px solid #FACC15;
-}
-
-/* SIDEBAR TITLE */
-section[data-testid="stSidebar"] h1,
-section[data-testid="stSidebar"] h2,
-section[data-testid="stSidebar"] h3 {
-    color: #FACC15 !important;
-}
-
-/* CARD FILM */
-.movie-card {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(10px);
-
-    padding: 25px;
-    border-radius: 20px;
-
-    border: 1px solid rgba(255,255,255,0.15);
-
-    margin-bottom: 20px;
-
-    transition: 0.3s ease;
-}
-
-/* HOVER CARD */
-.movie-card:hover {
-    transform: translateY(-5px);
-    border: 1px solid #FACC15;
-    box-shadow: 0 10px 30px rgba(250,204,21,0.25);
-}
-
-/* JUDUL FILM */
-.movie-card h3 {
-    color: #FACC15 !important;
-    margin-bottom: 10px;
-}
-
-/* GENRE */
-.genre {
-    color: #CBD5E1;
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-/* SIMILARITY */
-.similarity {
-    color: #FACC15;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-/* BUTTON */
-.stButton > button {
-    background: linear-gradient(
-        90deg,
-        #FACC15,
-        #EAB308
-    );
-
-    color: black;
-    font-weight: bold;
-
-    border: none;
-    border-radius: 12px;
-
-    padding: 10px 20px;
-
-    transition: 0.3s ease;
-}
-
-/* BUTTON HOVER */
-.stButton > button:hover {
-    transform: scale(1.03);
-    box-shadow: 0 5px 20px rgba(250,204,21,0.4);
-}
-
-/* SELECTBOX */
-div[data-baseweb="select"] > div {
-    background-color: #1E293B;
-    color: white;
-    border-radius: 10px;
-}
-
-/* SLIDER */
-.stSlider {
-    color: #FACC15;
-}
-
-</style>
+</div>
 """, unsafe_allow_html=True)
+
 
 
 # ======================================================
