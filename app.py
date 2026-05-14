@@ -149,7 +149,7 @@ if recommend_button:
     )
 
     # tampilkan judul
-    st.subheader(f"🍿 Film mirip dengan: {selected_movie}")
+    st.subheader(f"Film mirip dengan: {selected_movie}")
 
     # kalau ada hasil
     if recommendations:
