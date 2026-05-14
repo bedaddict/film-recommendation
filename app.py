@@ -133,7 +133,7 @@ df, sim_matrix = load_model()
 # ======================================================
 
 st.image(
-    "banner3.png",
+    "banner4.png",
     use_container_width=True
 )
 
@@ -155,7 +155,7 @@ with center:
         margin-bottom:20px;
     ">
         <h3 style="color:white;">
-        Cari film favoritmu 🎬
+        Cari film favoritmu!
         </h3>
     </div>
     """, unsafe_allow_html=True)
