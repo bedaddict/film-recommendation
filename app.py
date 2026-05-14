@@ -133,7 +133,7 @@ df, sim_matrix = load_model()
 # ======================================================
 
 st.image(
-    "banner1.png",
+    "banner2.png",
     use_container_width=True
 )
 
