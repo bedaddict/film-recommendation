@@ -10,4 +10,3 @@ st.subheader("Content-Based Filtering dengan TF-IDF")
 st.divider()
 
 st.success("App berhasil jalan 😭🔥")
-```
