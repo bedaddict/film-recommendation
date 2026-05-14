@@ -114,7 +114,6 @@ st.divider()
 # SIDEBAR
 # ======================================================
 
-st.sidebar.header("⚙️ Pengaturan")
 
 selected_movie = st.sidebar.text_input(
     "🎬 Ketik nama film favoritmu:",
