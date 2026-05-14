@@ -204,9 +204,24 @@ recommend_button = st.sidebar.button("🎥 Cari Rekomendasi")
 # MAIN CONTENT
 # ======================================================
 
-if recommend_button: 
-if selected_movie.strip() == "": st.warning("Masukin nama film dulu yaa") st.stop()
+if recommend_button:
 
+    # Cek input kosong
+    if selected_movie.strip() == "":
+        st.warning("⚠️ Masukin nama film dulu yaa 😭")
+        st.stop()
+
+    # Cari rekomendasi
+    recommendations = get_recommendations(
+        selected_movie,
+        df,
+        sim_matrix,
+        top_n=num_recommendations
+    )
+
+    st.subheader(f"🍿 Film mirip dengan: {selected_movie}")
+
+    # Tampilkan hasil
     if recommendations:
 
         for rec in recommendations:
@@ -215,9 +230,19 @@ if selected_movie.strip() == "": st.warning("Masukin nama film dulu yaa") st.sto
                 f"""
                 <div class="movie-card">
                     <h3>{rec['rank']}. {rec['title']}</h3>
-                    <p class="genre">🎭 Genre: {rec['genre']}</p>
-                    <p class="similarity">🔥 Kemiripan: {rec['similarity']}%</p>
-                    <p>{rec['description']}</p>
+
+                    <p class="genre">
+                        🎭 Genre: {rec['genre']}
+                    </p>
+
+                    <p class="similarity">
+                        🔥 Kemiripan: {rec['similarity']}%
+                    </p>
+
+                    <p>
+                        {rec['description']}
+                    </p>
+
                 </div>
                 """,
                 unsafe_allow_html=True
@@ -225,4 +250,5 @@ if selected_movie.strip() == "": st.warning("Masukin nama film dulu yaa") st.sto
 
 else:
 
-    st.info("👈 Pilih film di sidebar lalu klik tombol rekomendasi")
+    st.info("👈 Ketik nama film favoritmu lalu klik tombol rekomendasi")
+
