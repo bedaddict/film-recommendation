@@ -185,10 +185,11 @@ st.divider()
 
 st.sidebar.header("⚙️ Pengaturan")
 
-selected_movie = st.sidebar.selectbox(
-    "Pilih film favoritmu:",
-    sorted(df['title'].tolist())
+selected_movie = st.sidebar.text_input(
+    "🎬 Ketik nama film favoritmu:",
+    placeholder="Contoh: Avatar, Interstellar, Batman..."
 )
+
 
 num_recommendations = st.sidebar.slider(
     "Jumlah rekomendasi:",
@@ -203,16 +204,8 @@ recommend_button = st.sidebar.button("🎥 Cari Rekomendasi")
 # MAIN CONTENT
 # ======================================================
 
-if recommend_button:
-
-    recommendations = get_recommendations(
-        selected_movie,
-        df,
-        sim_matrix,
-        top_n=num_recommendations
-    )
-
-    st.subheader(f"🍿 Film mirip dengan: {selected_movie}")
+if recommend_button: 
+if selected_movie.strip() == "": st.warning("Masukin nama film dulu yaa") st.stop()
 
     if recommendations:
 
